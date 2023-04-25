@@ -15,9 +15,9 @@
           <% end %>
         </td>
         <td><%= link_to book.title,book %></td>
-        <td><%= book.body %></td>
+        <td class="text-center"><%= book.body %></td>
 
-        <td id="favorite_buttons_<%= book.id %>">
+        <td id="favorite_buttons_<%= book.id %>" class="text-center">
 　　　    <%= render "favorites/favorite", book: book %>
         </td>
         <td>
@@ -26,20 +26,7 @@
           </p>
         </td>
         <td>
-          <div id="index-raty"></div>
-         <script>
-          {
-            let indexRateElement = document.querySelector('#index-raty');
-            let indexOpt = {
-              starOn: "<%= asset_path('star-on.png') %>",
-              starOff: "<%= asset_path('star-off.png') %>",
-              scoreName: 'book[star]',
-              score: "<%= book.star %>",
-            readOnly: true,
-            };
-           window.raty(indexRateElement, indexOpt);
-         }
-         </script>
+           <%= render "books/raty", book: book %>
          </td>
         </tr>
     <% end %>
